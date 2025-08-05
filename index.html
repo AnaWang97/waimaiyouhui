@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外卖优惠合集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto max-w-lg p-5">
+    <!-- Header -->
+    <header class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">外卖优惠合集</h1>
+        <p class="text-gray-500 mt-2">每日更新 · 建议收藏本页</p>
+    </header>
+
+    <!-- Daily Deals Section -->
+    <section>
+        <h2 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-4 border-blue-500 inline-block">每日必领</h2>
+        <div class="space-y-4">
+            <!-- Meituan Card -->
+            <div class="bg-white rounded-xl shadow-md p-5 flex items-center justify-between transition transform hover:-translate-y-1">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">美团外卖红包</h3>
+                    <p class="text-gray-600 text-sm mt-1">点击复制，打开美团app！</p>
+                </div>
+                <button onclick="copyLink('【1 %复制信息#% 打开团App http:/💰doYTQ4MjAxYWI💰一起领】', this)" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    复制口令
+                </button>
+            </div>
+
+            <!-- Ele.me Card -->
+            <div class="bg-white rounded-xl shadow-md p-5 flex items-center justify-between transition transform hover:-translate-y-1">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">饿了么红包</h3>
+                    <p class="text-gray-600 text-sm mt-1">大额美食红包，天天领！</p>
+                </div>
+                <button onclick="copyLink('【￥7yHC46TPkdW￥/ HU7405, HC46】', this)" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    复制口令
+                </button>
+            </div>
+
+            <!-- JD Daojia Card -->
+            <div class="bg-white rounded-xl shadow-md p-5 flex items-center justify-between transition transform hover:-translate-y-1">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">京东外卖</h3>
+                    <p class="text-gray-600 text-sm mt-1">点击链接，领取优惠</p>
+                </div>
+                <button onclick="copyLink('【https://kzurl14.cn/7Ez37k】', this)" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    点击链接
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milk Tea Section -->
+    <section class="mt-10">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-4 border-orange-400 inline-block">奶茶专区</h2>
+        <div class="space-y-4">
+            <!-- Milk Tea Card 1 -->
+            <div class="bg-white rounded-xl shadow-md p-5 flex items-center justify-between transition transform hover:-translate-y-1">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">蜜雪冰城</h3>
+                    <p class="text-gray-600 text-sm mt-1">6选1，限时3.9</p>
+                </div>
+                <button onclick="copyLink('【http://dpurl.cn/892metyz】', this, 'orange')" class="bg-orange-400 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-orange-500 transition-colors duration-300 flex-shrink-0">
+                    复制链接
+                </button>
+            
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // JavaScript Functionality - One-click Copy
+    function copyLink(linkText, buttonElement, theme = 'blue') {
+        // Use a temporary textarea element to copy the text
+        const textArea = document.createElement('textarea');
+        textArea.value = linkText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            // Success feedback
+            const originalText = buttonElement.innerText;
+            
+            buttonElement.innerText = '复制成功!';
+            buttonElement.classList.remove(theme === 'blue' ? 'bg-blue-500' : 'bg-orange-400');
+            buttonElement.classList.add('bg-green-500');
+
+            setTimeout(() => {
+                buttonElement.innerText = originalText;
+                buttonElement.classList.remove('bg-green-500');
+                buttonElement.classList.add(theme === 'blue' ? 'bg-blue-500' : 'bg-orange-400');
+            }, 2000); // Revert after 2 seconds
+        } catch (err) {
+            // Error feedback
+            console.error('Copy failed: ', err);
+            alert('复制失败，可能是浏览器不兼容，请手动复制');
+        }
+        document.body.removeChild(textArea);
+    }
+</script>
+
+</body>
+</html>
